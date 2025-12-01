@@ -12,6 +12,8 @@ using UnityEngine;
         public override void Enter()
         {
             base.Enter();
+            
+            LevelController.Instance.AddBlock();
             LevelController.Instance.levelActions.OnFindPath += UpdatePath;
             
             UpdatePath();

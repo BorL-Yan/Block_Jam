@@ -13,6 +13,7 @@ using UnityEngine;
         {
             base.Enter();
             CoroutineRunner.Instance.Run(IdleDealay());
+            _blockController.DiactivateTrailRenderer();
         }
 
         private IEnumerator IdleDealay()

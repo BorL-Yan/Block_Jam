@@ -289,10 +289,9 @@ public class MergeController : SingletonScene<MergeController>
         }
         for (int k = firstIndex; k < firstIndex + 3; k++)
         {
-            var disp = _joinPoints[k].Disposable;
+            _joinPoints[k].Movable.JumpAndMerge(k - firstIndex + 1);
             try
             {
-                disp?.DestroyBlock();
                 RemoveBlock();
                 LevelController.Instance.RemoveBlock();
             }

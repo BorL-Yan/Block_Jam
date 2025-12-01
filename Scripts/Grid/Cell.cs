@@ -66,7 +66,6 @@ public class Cell : MonoBehaviour
                 if (items.Count > 0)
                 {
                     BlockColor newColor = BlockData.GetBlockInList();
-                    Debug.Log($"new Block Color{newColor}");
                     if (LevelController.Instance.BlockPrefab != null)
                     {
                         var instance = Instantiate(LevelController.Instance.BlockPrefab);

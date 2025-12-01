@@ -22,7 +22,7 @@ namespace Game
             _blockCount--;
             if (_blockCount == 0)
             {
-                //levelActions.OnEndLevel?.Invoke(true);
+                levelActions.OnEndLevel?.Invoke(true);
             }
         }
 

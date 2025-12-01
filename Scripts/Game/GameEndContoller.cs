@@ -22,6 +22,8 @@ namespace Game
 
             if (value)
             {
+                
+                //Save Content is Null
                 var data = GameSave.GetSettings();
                 data.Level++;
                 GameSave.SetSettings(data);

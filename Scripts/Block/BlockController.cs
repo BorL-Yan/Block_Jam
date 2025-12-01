@@ -13,6 +13,12 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
     [SerializeField] private List<BlockMaterial> _blockMaterials;
     [SerializeField] private GameObject _blockedObject;
     [SerializeField] private Collider _selectCollider;
+
+    [SerializeField] private TrailRenderer _trailRenderer;
+    [SerializeField] private ParticleSystem _trailParticleSystem;
+    
+    [field: SerializeField ] public AnimationCurve _mergeAniamtionCurve;
+    
     public Vector3 Position => Root.position;
     public Vector3 MergeControllerPoint { get; private set; }
     
@@ -39,6 +45,7 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
 
         
         if( Action == null ) Action = new BlockAction();
+        DiactivateTrailRenderer();
     }
 
     public void Init(BlockColor blockColor, Cell cell)
@@ -101,7 +108,7 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
     
     private void StartScene()
     {
-        LevelController.Instance.AddBlock();
+        
         _stateMachine.ChangeState<BlockDiactivateState>();
 
     }
@@ -133,6 +140,12 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
         _movment.MoveOneShut(direction);
     }
 
+    public void JumpAndMerge(int index)
+    {
+        _movment.Jump(index, DestroyBlock);
+        
+    } 
+
     #endregion
 
     public void Select()
@@ -153,6 +166,55 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
         Cell.BlockData.BlockType = BlockType.Normal;
         _selectCollider.enabled = true;
         _stateMachine.ChangeState<BlockActivateState>();
+    }
+
+    public void DiactivateTrailRenderer()
+    {
+        _trailRenderer.Clear();
+        _trailRenderer.gameObject.SetActive(false);
+        _trailParticleSystem.Clear();
+        _trailParticleSystem.gameObject.SetActive(false);
+    }
+
+    public void ActivateTrailRenderer()
+    {
+        _trailParticleSystem.gameObject.SetActive(true);
+        _trailRenderer.gameObject.SetActive(true);
+        
+        Gradient trailGradient = new Gradient();
+        GradientAlphaKey[] alphaKeys = new GradientAlphaKey[2];
+        alphaKeys[0] = new GradientAlphaKey(0.5f, 0.5f); 
+        alphaKeys[1] = new GradientAlphaKey(0.0f, 1.0f);
+        
+        GradientColorKey[] colorKeys = new GradientColorKey[1];
+        Gradient color = new Gradient();
+
+        switch (_blockColor)
+        {
+            case BlockColor.Red:
+            {
+                colorKeys[0] = new GradientColorKey(Color.red, 0f);   // Start color (at the object's position)
+                break;
+            }
+            case BlockColor.Yellow:
+            {
+                colorKeys[0] = new GradientColorKey(Color.yellow, 0f);
+                break;
+            }
+            case BlockColor.Blue:
+            {
+                colorKeys[0] = new GradientColorKey(Color.blue, 0f);
+                break;
+            }
+            case BlockColor.Purple:
+            {
+                colorKeys[0] = new GradientColorKey(Color.purple, 0f);
+                break;
+            }
+        }
+        trailGradient.SetKeys(colorKeys, alphaKeys);
+        
+        _trailRenderer.colorGradient = trailGradient;
     }
     
     public void DestroyBlock()

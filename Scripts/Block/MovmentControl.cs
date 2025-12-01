@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -32,6 +33,38 @@ using UnityEngine.Serialization;
         public void Rotate(Vector3 direction)
         {
             _blockController.Root.rotation = Quaternion.LookRotation(direction);
+        }
+
+        public void Jump(int index, Action callBack)
+        {
+            Vector3 directionToMerge = Vector3.up*2;
+            switch (index)
+            {
+                case 1:
+                {
+                    directionToMerge += Vector3.right;
+                    break;
+                }
+                case 3:
+                {
+                    directionToMerge += Vector3.left;
+                    break;
+                }
+            }
+            
+            Sequence sequence = DOTween.Sequence();
+
+            
+            
+            sequence.Append(_blockController.Root.DOMove(_blockController.Root.position + Vector3.up * 2, 0.5f))
+                .Append(_blockController.Root.DOMove(_blockController.Root.position + directionToMerge, 1f))
+                .SetEase(_blockController._mergeAniamtionCurve)
+                .JoinCallback(() =>
+                {
+                    // Merge Effects
+                    Debug.Log("Effect ! !");
+                })
+                .AppendCallback(()=>callBack?.Invoke());
         }
         
     }

@@ -14,6 +14,7 @@ using UnityEngine;
         public override void Enter()
         {
             base.Enter();
+            _blockController.ActivateTrailRenderer();
             _finalPoint = false;
             NextPoint();
         }
