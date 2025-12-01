@@ -1,0 +1,11 @@
+# Игнорируем всё
+*
+
+# Но не игнорируем .gitignore
+!.gitignore
+
+# Не игнорируем папку Assets
+!Scripts/
+!Scripts/**
+
+*.meta
