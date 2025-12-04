@@ -8,18 +8,18 @@ public class OpenScene : MonoBehaviour
     [SerializeField] private UIButton _uIButton;
     
     
-    
-    
     private void Open()
     {
+        Debug.Log("Open Scene ");
         GameSettings setings = GameSave.GetSettings();
-
         int level = setings.Level;
-        
-        if(level < 3)
+        if (level < 15)
+        {
             level++;
-        
+        }
         SceneManager.LoadScene(level);
+        
+        
     }
 
     private void OnEnable() 

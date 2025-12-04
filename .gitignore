@@ -8,4 +8,6 @@
 !Scripts/
 !Scripts/**
 
+!Editor/
+!Editor/**
 *.meta
