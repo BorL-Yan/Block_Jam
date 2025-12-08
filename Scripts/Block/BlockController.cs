@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Game;
+using Lib;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -17,7 +19,13 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
     [SerializeField] private TrailRenderer _trailRenderer;
     [SerializeField] private ParticleSystem _trailParticleSystem;
     
-    [field: SerializeField ] public AnimationCurve _mergeAniamtionCurve;
+    public AnimationCurve _mergeAniamtionCurve;
+    public float mergeAmplitude;
+    public float mergeSpeed;
+    
+    public AnimationCurve _jumpAniamtionCurve;
+    public float jumpAmplitude;
+    public float jumpSpeed;
     
     public Vector3 Position => Root.position;
     public Vector3 MergeControllerPoint { get; private set; }
@@ -36,7 +44,7 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
     [SerializeField] private BlockColor _blockColor;
     public BlockColor BlockColor => _blockColor;
     
-
+    
     private void Awake()
     {
         _movment = new MovmentControl(this);
@@ -216,6 +224,13 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
         
         _trailRenderer.colorGradient = trailGradient;
     }
+
+
+    public void ActivateCoroutine(IEnumerator coroutine)
+    {
+        StartCoroutine(coroutine);
+    }
+    
     
     public void DestroyBlock()
     {
@@ -232,6 +247,8 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
         if(LevelController.Instance!= null)
             LevelController.Instance.levelActions.OnStartLevel -= StartScene;
     }
+    
+    
 }
 
 [Serializable]
