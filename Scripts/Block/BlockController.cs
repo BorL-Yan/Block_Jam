@@ -1,23 +1,24 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using Game;
-using Lib;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
+
 
 public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
 {
     [field: SerializeField] public Transform Root;
-    [SerializeField] public MeshRenderer _meshRenderer;
-    [SerializeField] private List<BlockMaterial> _blockMaterials;
-    [SerializeField] private GameObject _blockedObject;
+    [field: SerializeField] public Transform Body;
+    
+    [SerializeField] private BoxController _blockedObject;
     [SerializeField] private Collider _selectCollider;
 
-    [SerializeField] private TrailRenderer _trailRenderer;
+
+    [SerializeField] private TrailController _trailController;
     [SerializeField] private ParticleSystem _trailParticleSystem;
+
+    [SerializeField] private List<SetBlockMaterial> blockMaterials;
+    
+    [field: SerializeField] public BlockAniamtionController Animation {get; private set; }
+    [field: SerializeField] public BlockMaterilaController MaterilaController { get; private set; }
     
     public AnimationCurve _mergeAniamtionCurve;
     public float mergeAmplitude;
@@ -36,9 +37,10 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
     
     private MovmentControl _movment;
     public BlockAction Action;
+    public MergePoint MergePoint;
     
-    private BlockStateMachine _stateMachine;
-    [SerializeField, HideInInspector] public Cell Cell;
+    public BlockStateMachine StateMachine { get; private set; }
+    [SerializeField] public Cell Cell;
     
     
     [SerializeField] private BlockColor _blockColor;
@@ -48,9 +50,8 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
     private void Awake()
     {
         _movment = new MovmentControl(this);
-        _stateMachine = new BlockStateMachine(this);
-        _stateMachine.Init(this);
-
+        StateMachine = new BlockStateMachine(this);
+        StateMachine.Init(this);
         
         if( Action == null ) Action = new BlockAction();
         DiactivateTrailRenderer();
@@ -60,21 +61,15 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
     {
         _blockColor = blockColor;
         Cell = cell;
-        foreach (var item in _blockMaterials)
-        {
-            if (item.blockColor == blockColor)
-            {
-                _meshRenderer.material = item.material;
-                break;
-            }
-        }
-
+      
+        MaterilaController.SetColor(blockColor);
+        
         if (Cell != null)
         {
             Cell.BlockData.BlockColor = _blockColor;
         }
-        
-        _stateMachine.ChangeState<BlockDiactivateState>();
+
+        StateMachine.ChangeState<BlockDiactivateState>(); 
     }
 
     
@@ -84,51 +79,41 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
     public void InitEditor(BlockColor blockColor, Cell cell, bool blocked)
     {
 #if UNITY_EDITOR
-        _blockedObject.SetActive(blocked);
+        BlockedObject(blocked);
         _selectCollider.enabled = !blocked;
         
         _blockColor = blockColor;
         Cell = cell;
 
-        foreach (var item in _blockMaterials)
-        {
-            if (item.blockColor == blockColor)
-            {
-                _meshRenderer.sharedMaterial = item.material;
-                break;
-            }
-        }
+        
+        MaterilaController.SetColor(blockColor);
+        //MaterilaController.SetEyes(blockColor, BlockEyesType.Active);
+        
+        ActivateMaterial(false);
 #endif
     }
 
-    public void UpdateVisual(BlockColor blockColor)
+    public void BlockedObject(bool blocked)
     {
-        _blockColor = blockColor;
-        foreach (var item in _blockMaterials)
-        {
-            if (item.blockColor == blockColor)
-            {
-                _meshRenderer.material = item.material;
-                return;
-            }
-        }
+        _blockedObject.SetActive(blocked);
+        MaterilaController.gameObject.SetActive(!blocked);
     }
     
-    private void StartScene()
+    public void StartScene()
     {
-        
-        _stateMachine.ChangeState<BlockDiactivateState>();
-
+        if (_blockedObject.isActiveAndEnabled) _blockedObject.Active = true;
+        else StateMachine.ChangeState<BlockDiactivateState>();
+        Action.InitilaHello?.Invoke();
     }
 
     private void Update()
     {
-       _stateMachine.Update(); 
+       StateMachine.Update(); 
     }
 
     private void FixedUpdate()
     {
-        _stateMachine.FixedUpdate();
+        StateMachine.FixedUpdate();
     }
 
     #region Move
@@ -142,44 +127,64 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
     {
         _movment.Rotate(direction);
     }
-
-    public void MoveOneShot(Vector3 direction)
+    public void Rotate(Vector3 direction, float duration)
     {
-        _movment.MoveOneShut(direction);
+        _movment.Rotate(direction, duration);
     }
 
-    public void JumpAndMerge(int index)
+    public void MoveOneShot(Vector3 targetPosition)
     {
-        _movment.Jump(index, DestroyBlock);
-        
+        _movment.MoveToPlatform(targetPosition);
+    }
+
+    public void MoveOneShot(Vector3 targetPosition, float duration)
+    {
+        _movment.MoveToPlatform(targetPosition, duration);
+    }
+
+    public void MoveToCell(Vector3 direction)
+    {
+        _movment.MoveToCell(direction);
+    }
+    
+    public void JumpAndMerge(int index, Vector3 position)
+    {
+        _movment.Jump(index, position, DestroyBlock);
+
     } 
 
     #endregion
 
     public void Select()
     {
-        //if(!_stateMachine.InState<BlockActivateState>()) return;
-        
-        Action.OnSelect?.Invoke();
+        if (_blockedObject.Active == false)
+        {
+            Action.OnSelect?.Invoke();
+        }
+        else
+        {
+            Debug.Log("Blocked Box Active");
+        }
     }
 
     public void BlockSelected()
     {
         Cell.BlockSelected();
+       
     }
 
     public void ActivateBlockedBlock()
     {
-        _blockedObject.SetActive(false);
+        _blockedObject.Activate();
+        MaterilaController.gameObject.SetActive(true);
         Cell.BlockData.BlockType = BlockType.Normal;
         _selectCollider.enabled = true;
-        _stateMachine.ChangeState<BlockActivateState>();
+        StateMachine.ChangeState<BlockActivateState>();
     }
 
     public void DiactivateTrailRenderer()
     {
-        _trailRenderer.Clear();
-        _trailRenderer.gameObject.SetActive(false);
+        _trailController.Activate(false);
         _trailParticleSystem.Clear();
         _trailParticleSystem.gameObject.SetActive(false);
     }
@@ -187,73 +192,54 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
     public void ActivateTrailRenderer()
     {
         _trailParticleSystem.gameObject.SetActive(true);
-        _trailRenderer.gameObject.SetActive(true);
+        _trailController.Activate(true);
         
-        Gradient trailGradient = new Gradient();
-        GradientAlphaKey[] alphaKeys = new GradientAlphaKey[2];
-        alphaKeys[0] = new GradientAlphaKey(0.5f, 0.5f); 
-        alphaKeys[1] = new GradientAlphaKey(0.0f, 1.0f);
-        
-        GradientColorKey[] colorKeys = new GradientColorKey[1];
-        Gradient color = new Gradient();
-
-        switch (_blockColor)
-        {
-            case BlockColor.Red:
-            {
-                colorKeys[0] = new GradientColorKey(Color.red, 0f);   // Start color (at the object's position)
-                break;
-            }
-            case BlockColor.Yellow:
-            {
-                colorKeys[0] = new GradientColorKey(Color.yellow, 0f);
-                break;
-            }
-            case BlockColor.Blue:
-            {
-                colorKeys[0] = new GradientColorKey(Color.blue, 0f);
-                break;
-            }
-            case BlockColor.Purple:
-            {
-                colorKeys[0] = new GradientColorKey(Color.purple, 0f);
-                break;
-            }
-        }
-        trailGradient.SetKeys(colorKeys, alphaKeys);
-        
-        _trailRenderer.colorGradient = trailGradient;
+        _trailController.Init(_blockColor);
     }
 
-
-    public void ActivateCoroutine(IEnumerator coroutine)
+    public void ActivateMaterial(bool value)
     {
-        StartCoroutine(coroutine);
+        foreach (var item in blockMaterials)
+        {
+            item.Activate(value);
+        }
     }
     
+    public void Partical()
+    {
+        GameObject partical = BlockJamParticals.Instance.GetPartical(_blockColor);
+        partical.SetActive(true);
+        partical.transform.position = Root.position;
+    }
     
     public void DestroyBlock()
     {
+        LevelController.Instance.RemoveBlock();
+        StateMachine.CurrentState.Exit();
+        StateMachine.Dispose();
         Destroy(Root.gameObject);
     }
     
     private void OnEnable()
     {
-        LevelController.Instance.levelActions.OnStartLevel += StartScene;
+        if(LevelController.Instance!= null)
+            LevelController.Instance.levelActions.OnStartLevel += StartScene;
+        else
+        {
+            StartLevelRegistry.Register(StartScene);
+        }
     }
 
     private void OnDisable()
     {
-        if(LevelController.Instance!= null)
+        if(LevelController.Instance != null)
             LevelController.Instance.levelActions.OnStartLevel -= StartScene;
     }
-    
-    
+
+    private void OnDestroy()
+    {
+        if(LevelController.Instance != null)
+            LevelController.Instance.levelActions.OnStartLevel -= StartScene;
+    }
 }
 
-[Serializable]
-public class BlockMaterial
-{
-    public Material material;
-    public BlockColor blockColor;
-}

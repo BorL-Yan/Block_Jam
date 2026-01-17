@@ -4,12 +4,10 @@ using UnityEngine.EventSystems;
 public class MobSelector : MonoBehaviour
 {
     [SerializeField] private LayerMask _layerMask;
-    private Camera _mainCamera;
 
     private void Awake()
     {
         // Кэшируем камеру один раз при старте
-        _mainCamera = Camera.main;
     }
 
     private void Update()
@@ -31,7 +29,7 @@ public class MobSelector : MonoBehaviour
 
     private void CastRay(Vector3 screenPosition)
     {
-        Ray ray = _mainCamera.ScreenPointToRay(screenPosition);
+        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
         
         // Для дебага (будет видно только в Editor)
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 1f);

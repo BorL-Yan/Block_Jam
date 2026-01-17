@@ -1,23 +1,37 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
-public class UIButton : MonoBehaviour, IPointerClickHandler
+public abstract class UIButton : MonoBehaviour, IPointerClickHandler
 {
-    private UnityEvent OnClick = new();
-
-    public void AddListner(UnityAction action)
-    {
-        OnClick.AddListener(action);
-    }
-
-    public void RemoveListener(UnityAction action)
-    {
-        OnClick.RemoveListener(action);
-    }
+    protected float _clickScale = 0.7f;
+    protected float _clickDureation = 0.1f;
+    protected Sequence anim;
+    public event Action OnClick;
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        OnClick?.Invoke();
+        ButtonAnimation();
+    }
+
+    protected virtual void ButtonAnimation()
+    {
+        anim?.Kill();
+        anim = DOTween.Sequence();
+        anim.Append(transform.DOScale(Vector3.one*_clickScale, _clickDureation))
+            .AppendCallback(() =>
+            {
+                Click();
+                OnClick?.Invoke();
+            })
+            .Append(transform.DOScale(Vector3.one, _clickDureation));
+    }
+    
+    protected abstract void Click();
+    
+    private void OnDestroy()
+    {
+        anim?.Kill();
     }
 }

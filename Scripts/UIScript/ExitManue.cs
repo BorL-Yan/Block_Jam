@@ -1,25 +1,13 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
+using Managers;
 
 namespace UIScript
 {
-    public class ExitManue: MonoBehaviour
+    public class ExitManue: UIButton
     {
-        [SerializeField] private UIButton _button;
-
-        private void Open()
+        protected override void Click()
         {
-            SceneManager.LoadScene(0);
-        }
-        
-        private void OnEnable()
-        {
-            _button.AddListner(Open);
-        }
-
-        private void OnDisable()
-        {
-            _button.RemoveListener(Open);
+            GameManager.Instance.ActivateSceneController.ActivateScene(0);
+            GameManager.Instance.LoadManueController.ExitIcon(true);
         }
     }
 }

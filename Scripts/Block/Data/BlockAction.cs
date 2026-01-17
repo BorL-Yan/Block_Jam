@@ -5,4 +5,7 @@ using System;
     {
         public Action OnSelect;
         public Action OnUpdatePath;
+        public Action InitilaHello;
+
+        public Func<Action, bool> OnJoin;
     }

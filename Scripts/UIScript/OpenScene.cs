@@ -1,33 +1,18 @@
+using Managers;
 
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
-public class OpenScene : MonoBehaviour
+public class OpenScene : UIButton
 {
-    [SerializeField] private UIButton _uIButton;
-    
-    
-    private void Open()
+    protected override void Click()
     {
-        Debug.Log("Open Scene ");
         GameSettings setings = GameSave.GetSettings();
         int level = setings.Level;
-        if (level < 15)
+        if (level < GameSave.MaxLevel)
         {
             level++;
         }
-        SceneManager.LoadScene(level);
-        
-        
-    }
-
-    private void OnEnable() 
-    {
-        _uIButton.AddListner(Open);
-    }
-
-    private void OnDestroy() {
-        _uIButton.RemoveListener(Open);
+        GameManager.Instance.ActivateSceneController.ActivateScene(level);
+        GameManager.Instance.LoadManueController.ActivateLoadManue(true);
+        SoundManager.Instance.PlayOneShot(SoundType.Activate);
     }
 }

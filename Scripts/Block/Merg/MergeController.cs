@@ -7,13 +7,18 @@ using UnityEngine;
 public class MergeController : SingletonScene<MergeController>
 {
     [SerializeField] private List<MergePoint> _joinPoints;
+    [SerializeField] private LastJoinPointController _lastJoinPoint;
+    
     private int Count => _joinPoints.Count;
     public bool IsFull => _joinPoints.Count > 0 && _joinPoints[_joinPoints.Count - 1].Active;
     private int blocks;
-
+    
+    
+    
     private void Start()
     {
         if (_joinPoints == null) Debug.LogError("Merge points not set");
+        
     }
 
     #region Set & Get Position
@@ -202,10 +207,9 @@ public class MergeController : SingletonScene<MergeController>
             {
                 if (dst.Movable != null)
                 {
-                    Vector3 delta = dst.Pos - src.Pos; // куда нужно переместить
-                    if (delta != Vector3.zero)
+                    if (dst.Movable != null)
                     {
-                        dst.Movable.MoveOneShot(delta);
+                        dst.Movable.MoveOneShot(dst.Pos);
                     }
                 }
             }
@@ -246,9 +250,8 @@ public class MergeController : SingletonScene<MergeController>
             {
                 if (dst.Movable != null)
                 {
-                    Vector3 delta = dst.Pos - oldPos;
-                    if (delta != Vector3.zero)
-                        dst.Movable.MoveOneShot(delta);
+                    if (dst.Movable != null)
+                        dst.Movable.MoveOneShot(dst.Pos, 0.3f);
                 }
             }
             else
@@ -287,43 +290,89 @@ public class MergeController : SingletonScene<MergeController>
                 return;
             }
         }
+        Vector3 targetMergePos = _joinPoints[firstIndex + 1].Pos;
+        
         for (int k = firstIndex; k < firstIndex + 3; k++)
         {
-            _joinPoints[k].Movable.JumpAndMerge(k - firstIndex + 1);
+            var point = _joinPoints[k];
+            point.Movable.JumpAndMerge(k - firstIndex + 1, targetMergePos);
             try
             {
                 RemoveBlock();
-                LevelController.Instance.RemoveBlock();
             }
             catch (Exception ex)
             {
                 Debug.LogError($"Ошибка при DestroyBlock: {ex}");
             }
 
-            _joinPoints[k].Clear();
+            point.Clear();
         }
 
         // после удаления — уплотняем влево
+        
         CompactLeft();
     }
 
+
+    public void DetectGameEnd()
+    {
+        if (IsFull && OpeningPoints())
+        {
+            foreach (var point in _joinPoints)
+            {
+                if(!point.IsStanding) return; 
+            }
+            LevelController.Instance.GameEnd();
+            _lastJoinPoint.Diactivate();
+        }
+    }
+    
+    
     public void AddNewBlock()
     {
         blocks++;
-        if (IsFull && OpeningPoints()) LevelController.Instance.levelActions.OnEndLevel(false);
+        if (blocks + 1 == Count && !_lastJoinPoint.ativated)
+        {
+            _lastJoinPoint.Actviate();
+        }
     }
 
     private void RemoveBlock()
     {
         blocks--;
+        if (_lastJoinPoint.ativated)
+        {
+            _lastJoinPoint.Diactivate();
+        }
     }
 
     public bool OpeningPoints()
     {
-        return blocks == Count;
+        return blocks == Count ;
+    }
+
+    public void ClearJoinPoint()
+    {
+        blocks = 0;
+        _joinPoints.ForEach(j => j.Clear());
+        _lastJoinPoint.Diactivate();
     }
 
     #endregion
 
+    #region Actions
+
+    private void OnEnable()
+    {
+        LevelController.Instance.levelActions.OnStartLevel += ClearJoinPoint;
+    }
+
+    private void OnDisable()
+    {
+        LevelController.Instance.levelActions.OnStartLevel -= ClearJoinPoint;
+    }
+
+    #endregion
+    
 
 }

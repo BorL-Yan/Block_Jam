@@ -22,7 +22,6 @@ namespace Lib
                         {
                             var go = new GameObject(typeof(T).Name + " (AutoCreated)");
                             _instance = go.AddComponent<T>();
-
                         }
                     }
 
@@ -42,6 +41,7 @@ namespace Lib
                 Debug.LogWarning($"[{typeof(T).Name}] Duplicate instance: destroying {gameObject.name}");
                 Destroy(gameObject);
             }
+            DontDestroyOnLoad(gameObject);
         }
 
         protected virtual void OnDestroy()

@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 
-    public class BlockStateMachine
+public class BlockStateMachine
     {
         private Dictionary<Type, BlockStateBase> _states = new();
         private BlockStateBase _currentState;
@@ -19,10 +20,8 @@ using System.Collections.Generic;
         {
             AddState(typeof(BlockDiactivateState), new BlockDiactivateState(this, blockController));
             AddState(typeof(BlockActivateState), new BlockActivateState(this, blockController));
-            AddState(typeof(BlockIdleState), new BlockIdleState(this, blockController));
+            AddState(typeof(BlockJoinPlatformState), new BlockJoinPlatformState(this, blockController));
             AddState(typeof(BlockRanState), new BlockRanState(this, blockController));
-            
-            
         }
 
         private void AddState(Type type, BlockStateBase state)
@@ -34,6 +33,13 @@ using System.Collections.Generic;
         {
             if (_currentState is T) return;
             
+            _currentState?.Exit();
+            _currentState = _states[typeof(T)];
+            _currentState.Enter();
+        }
+
+        public void ReactivateState<T>() where T : BlockStateBase
+        {
             _currentState?.Exit();
             _currentState = _states[typeof(T)];
             _currentState.Enter();
@@ -54,5 +60,15 @@ using System.Collections.Generic;
         {
             if(_currentState == null) return;
             _currentState.FixedUpdate();
+        }
+        
+        public void AnimtionTriggers()
+        {
+            _currentState.AnimationTriger(BlockAnimationTrigger.End);
+        }
+
+        public void Dispose()
+        {
+            _currentState?.Dispose();
         }
     }

@@ -28,6 +28,7 @@ public class Cell : MonoBehaviour
         {
             BlockData.RemoveFirstBlock();
         }
+        if(ConnectedTube != null) ConnectedTube.UpdateTubeText();
     }
 
 
@@ -56,7 +57,7 @@ public class Cell : MonoBehaviour
             }
             case BlockType.List:
             {
-                
+                UpdateNeighborBlocks();
                 var items = BlockData.Items;
                 if (items == null)
                 {
@@ -68,25 +69,30 @@ public class Cell : MonoBehaviour
                     BlockColor newColor = BlockData.GetBlockInList();
                     if (LevelController.Instance.BlockPrefab != null)
                     {
-                        var instance = Instantiate(LevelController.Instance.BlockPrefab);
-                        instance.transform.position = transform.position;
-                        instance.name = $"Block : {this.name}";
+                        var block = Instantiate(LevelController.Instance.BlockPrefab).GetComponent<BlockController>();
+                        block.transform.position = ConnectedTube.transform.position;
+                        block.MoveToCell((transform.position - ConnectedTube.transform.position).normalized);
+                        block.name = $"Block : {this.name}";
                         
-                        BlockController spawnedBlock = instance.GetComponent<BlockController>();
+                        ConnectedTube.Activate();
                     
-                        if (spawnedBlock != null)
+                        if (block != null)
                         {
                             // Передаем 'this', если пуле нужно знать, кто её родил, или null/target
-                            spawnedBlock.Init(newColor, this); 
+                            block.Init(newColor, this); 
                         }
 
-                        BlockController = spawnedBlock;
+                        BlockController = block;
                     }
                     else
                     {
                         Debug.LogWarning("Block Prefab is null");
                     }
                     
+                }
+                else
+                {
+                    CellType = CellType.Empty;
                 }
                 if(ConnectedTube != null)
                     ConnectedTube.UpdateTubeText();

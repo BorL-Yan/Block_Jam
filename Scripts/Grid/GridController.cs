@@ -15,10 +15,11 @@ public class GridController : SingletonScene<GridController>
     // Используем public поле для назначения родителя в инспекторе
     public GameObject BlockParentObject;
     public GameObject CellParentObject;
+    public GameObject WallParentObject;
     
     // Приватные поля, которые теперь корректно обрабатываются SerializedProperty
-    [SerializeField, Min(1)] private int _columns = 1;
-    [SerializeField, Min(1)] private int _rows = 1;
+    [SerializeField, Min(0)] private int _columns = 1;
+    [SerializeField, Min(0)] private int _rows = 1;
     
     // Public свойства для доступа
     public int Rows => _rows;
@@ -44,7 +45,7 @@ public class GridController : SingletonScene<GridController>
     [SerializeField] private GameObject _grassUp;
 
 
-    public bool Created { get; private set; }
+    public bool Created { get; private set; } = false;
 
     private void OnEnable()
     {
@@ -88,9 +89,41 @@ public class GridController : SingletonScene<GridController>
                 }
             }
             pathFinder = new PathFinder(this);
+            Created = true;
+            
         }
     }
 
+    private void Awake()
+    {
+        _grid = new Cell[_rows, _columns];
+
+        // Защита: проверяем, совпадает ли размер сохраненных данных с настройками
+        if (_savedCells.Count < _rows * _columns)
+        {
+            Debug.LogError($"Ошибка! В _savedCells {_savedCells.Count} элементов, а нужно {_rows * _columns}.");
+            return;
+        }
+        for (int r = 0; r < _rows; r++)
+        {
+            for (int c = 0; c < _columns; c++)
+            {
+                // Формула перевода координат 2D -> 1D
+                int index = r * _columns + c;
+
+                // Копируем (или создаем новый, если Cell - ссылочный тип, лучше клонировать)
+                _grid[r, c] = _savedCells[index]; 
+            }
+        }
+        pathFinder = new PathFinder(this);
+        Created = true;
+    }
+
+    public void UpdatePathFinder()
+    {
+        pathFinder = new PathFinder(this);
+    }
+    
     void Update()
     {
 #if UNITY_EDITOR
@@ -402,7 +435,7 @@ public class GridController : SingletonScene<GridController>
                         if(wallObj == null) Debug.LogError("Wall Object is null");
                         
                         // Используем BlockParentObject если есть, иначе родителя клетки
-                        Transform parent = BlockParentObject != null ? BlockParentObject.transform : cell.transform;
+                        Transform parent = WallParentObject != null ? WallParentObject.transform : cell.transform;
                     
                         wallObj.transform.position = cell.transform.position;
                         wallObj.gameObject.transform.SetParent(parent);

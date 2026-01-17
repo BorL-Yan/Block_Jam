@@ -1,28 +1,16 @@
 using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace UIScript
 {
-    public class RestartScene : MonoBehaviour
+    public class RestartScene : UIButton
     {
-        [SerializeField] private UIButton _button;
-
-        private void Restart()
+        protected override void Click()
         {
-            int currentindex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(currentindex);
-        }
-
-
-        private void OnEnable()
-        {
-            _button.AddListner(Restart);
-        }
-
-        private void OnDisable()
-        {
-            _button.RemoveListener(Restart);
+            GameManager.Instance.ActivateSceneController.ActivateScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.Instance.LoadManueController.ExitIcon(true);
         }
     }
 }

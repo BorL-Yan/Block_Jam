@@ -33,6 +33,8 @@ public class CellEditor : Editor
     
     public override void OnInspectorGUI()
     {
+        if(Application.isPlaying) return;
+        
         serializedObject.Update();
         EditorGUI.BeginChangeCheck();
         
@@ -262,6 +264,7 @@ public class CellEditor : Editor
                 cell.BlockController = instance.GetComponent<BlockController>();
                 
                 instance.transform.SetParent(parentTransform);
+                instance.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
                 instance.transform.position = cell.transform.position;
                 instance.name = $"Block : {cell.name}";
 
@@ -315,8 +318,8 @@ public class CellEditor : Editor
         { 
             var instance = PrefabUtility.InstantiatePrefab(_wallPrefab) as GameObject;
                 
-            Transform parentTransform = cell.Grid != null && cell.Grid.BlockParentObject != null 
-                ? cell.Grid.BlockParentObject.transform 
+            Transform parentTransform = cell.Grid != null && cell.Grid.WallParentObject != null 
+                ? cell.Grid.WallParentObject.transform 
                 : cell.transform.parent;
 
             instance.transform.SetParent(parentTransform);

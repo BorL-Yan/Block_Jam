@@ -2,11 +2,9 @@ using UnityEngine;
 
 namespace UIScript
 {
-    public class CleraHistory : MonoBehaviour
+    public class CleraHistory : UIButton
     {
-        [SerializeField] private UIButton _button;
-
-        private void Restart()
+        protected override void Click()
         {
             GameSettings setings = GameSave.GetSettings();
 
@@ -14,17 +12,6 @@ namespace UIScript
         
             GameSave.SetSettings(setings);
             GameSave.Save();
-        }
-
-
-        private void OnEnable()
-        {
-            _button.AddListner(Restart);
-        }
-
-        private void OnDisable()
-        {
-            _button.RemoveListener(Restart);
         }
     }
 }

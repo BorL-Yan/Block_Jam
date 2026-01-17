@@ -1,4 +1,3 @@
-
 using TMPro;
 using UnityEngine;
 
@@ -8,11 +7,7 @@ public class TubeController: MonoBehaviour
     [SerializeField] private TMP_Text _text;
 
     [SerializeField] private Cell _cell;
-
-    private void Start()
-    {
-        UpdateTubeText();
-    }
+    [SerializeField] private Animator _animator; 
     
     public void Connect(Cell cell)
     {
@@ -22,7 +17,7 @@ public class TubeController: MonoBehaviour
         // Безопасная проверка на наличие данных
         if (_cell.BlockData != null && _cell.BlockData.Items != null)
         {
-            _text.text = _cell.BlockData.Items.Count.ToString();
+            _text.text = (_cell.BlockData.Items.Count).ToString();
         }
     }
 
@@ -60,6 +55,12 @@ public class TubeController: MonoBehaviour
 
         }
         _visualModel.transform.localRotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    public void Activate()
+    {
+        SoundManager.Instance.PlayOneShot(SoundType.ActivateInList);
+        _animator.Play("Activate", 0 , 0);
     }
 }
 

@@ -6,6 +6,8 @@
 
 # Не игнорируем папку Assets
 !Scripts/
+!Editor/
+!Editor/**
 !Scripts/**
 
 !Editor/

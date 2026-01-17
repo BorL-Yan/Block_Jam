@@ -42,4 +42,5 @@ public enum BlockColor
     Blue,
     Yellow,
     Purple,
+    Green,
 }

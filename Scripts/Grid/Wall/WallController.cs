@@ -31,15 +31,6 @@ public class WallController : MonoBehaviour
     
     private void ClearOldWalls()
     {
-        // Удаляем объекты в обратном порядке или через временный список, 
-        // чтобы не поломать цикл foreach при удалении
-        // for (int i = _walls.Count - 1; i >= 0; i--)
-        // {
-        //     if (_walls[i] != null)
-        //     {
-        //         DestroyImmediate(_walls[i]);
-        //     }
-        // }
         foreach (var wall in _walls)
         {
             if (wall != null)
@@ -52,8 +43,6 @@ public class WallController : MonoBehaviour
 
     private void GenerateTile()
     {
-        // 1. Собираем информацию о 8 соседях в массив bool
-        // Порядок должен совпадать с TileRuleDrawer (0:TopLeft ... 7:BotRight)
         bool[] neighbors = GetNeighborsStatus(Row, Column);
 
         GameObject targetPrefab = _defaultPrefab;
@@ -67,8 +56,6 @@ public class WallController : MonoBehaviour
                 {
                     CreateObject(rule);
                 }
-                // Если в правиле стоит галочка "StopOnMatch", 
-                // мы прекращаем проверять остальные правила для этой клетки
                 if (rule.StopOnMatch)
                 {
                     break;
@@ -77,23 +64,9 @@ public class WallController : MonoBehaviour
         }
         
     }
-    
-    // Возвращает массив [8] с true/false
     private bool[] GetNeighborsStatus(int r, int c)
     {
         bool[] status = new bool[8];
-        
-        // Схема смещений (X - строки/Row, Y - колонки/Col - или наоборот, проверь свой GridController)
-        // Предположим, Row - это X, Col - это Y.
-        // 0: TopLeft  (Row+1, Col-1)
-        // 1: Top      (Row+1, Col)
-        // ...
-        // ВНИМАНИЕ: Настрой эти смещения под свою систему координат!
-        
-        // Массив оффсетов, соответствующий порядку в Editor (0..7)
-        // TopRow: TL, T, TR
-        // MidRow: L,     R
-        // BotRow: BL, B, BR
         
         int[,] offsets = new int[,] {
             { 1, -1 }, { 1, 0 }, { 1, 1 },  // Top Row (0, 1, 2)

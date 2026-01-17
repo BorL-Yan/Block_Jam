@@ -1,17 +1,17 @@
 using System;
 using System.Collections;
-using System.IO;
 using DG.Tweening;
 using Lib;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.Serialization;
 
-
-    public class MovmentControl
+public class MovmentControl
     {
         private readonly BlockController _blockController;
         private Action _callback;
+        
+        private Sequence _rotateSequence;
+        private Sequence _jumpSequence;
+        
         public MovmentControl(BlockController blockController)
         {
             _blockController = blockController;
@@ -24,62 +24,112 @@ using UnityEngine.Serialization;
             // _root.position = pos;
             _blockController.Root.Translate(direction * speed * Time.deltaTime, Space.World);
         }
-        
-        public void MoveOneShut(Vector3 direction)
+
+        public void MoveToCell(Vector3 direction)
         {
             Vector3 targetPosition = _blockController.Root.position + direction;
-            // Убить старый твин перед запуском нового, чтобы избежать конфликтов
-            _blockController.Root.DOKill(); 
-            _blockController.Root.DOMove(targetPosition, 0.1f);
+            Sequence sequence = DOTween.Sequence();
+            
+            _blockController.transform.localScale = Vector3.one * 0.5f;
+            _blockController.transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.InCubic);
+            _blockController.Animation.Play(BlockAnimationType.Run_Activate);
+            
+            Rotate(direction);
+            Rotate(Vector3.back, 0.5f);
+            
+            float duration = 0.3f;
+            
+            sequence.Append(_blockController.Root.DOMove(targetPosition, duration).SetEase(Ease.InCubic))
+                .AppendCallback(() =>
+                {
+                    _blockController.StateMachine.ChangeState<BlockActivateState>();
+                    _blockController.Animation.Play(BlockAnimationType.Idle);
+                    _blockController.BlockedObject(false);
+                })
+                .OnComplete(() =>
+                {
+                    _blockController.transform.position = targetPosition;
+                    _blockController.Root.rotation = Quaternion.LookRotation(Vector3.back);
+                });
+        }
+        
+        public void MoveToPlatform(Vector3 targetPosition, float duration = 0.2f)
+        {
+            _jumpSequence?.Kill(true);
+            _jumpSequence = DOTween.Sequence();
+
+            Vector3 direction = (targetPosition - _blockController.Root.position).normalized;
+            if(direction != Vector3.zero) Rotate(direction, duration / 2);
+            
+            _blockController.Animation.Play(BlockAnimationType.Run_Activate);
+            _jumpSequence.Append(_blockController.Root.DOMove(targetPosition, duration).SetEase(Ease.InCubic))
+                .AppendCallback(() =>
+                {
+                    _blockController.StateMachine.ReactivateState<BlockJoinPlatformState>();
+                    Rotate(Vector3.back, 0.2f);
+                })
+                .OnComplete(() =>
+                {
+                    _blockController.transform.position = targetPosition;
+                    Rotate(Vector3.back);
+                });
         }
 
         public void Rotate(Vector3 direction)
         {
             _blockController.Root.rotation = Quaternion.LookRotation(direction);
-            //_blockController.Root.DORotate(direction, 0.1f);
         }
 
-        
+        public void Rotate(Vector3 direction, float duration)
+        {
+            _rotateSequence?.Kill();
+            _rotateSequence = DOTween.Sequence();
+
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+            _rotateSequence.Append(_blockController.Root.DORotateQuaternion(targetRotation, duration));
+        }
+
         private float _angle = 0;
-        public void Jump(int index, Action callBack)
+        public void Jump(int index, Vector3 position, Action callBack)
         {
             _callback = callBack;
-            Vector3 directionToMerge = Vector3.zero;
+            BlockAnimationType animationType = BlockAnimationType.Merge_Midle;
             switch (index)
             {
                 case 1:
                 {
                     _angle = 30f;
-                    directionToMerge = Vector3.right;
+                    animationType = BlockAnimationType.Merge_Right;
+                    SoundManager.Instance.PlayOneShot(SoundType.Merge);
                     break;
                 }
                 case 3:
                 {
                     _angle = -30f;
-                    directionToMerge = Vector3.left;
+                    animationType = BlockAnimationType.Merge_Left;
                     break;
                 }
             }
+
+            try
+            {
+                if (_blockController.Action.OnJoin(Activate))
+                {
+                    Activate();
+                }
+            }
+            catch (NullReferenceException e)
+            {
+                Activate();
+            }
             
-            Debug.Log($"Moving to {directionToMerge}");
-            
-            _blockController.ActivateCoroutine(BlockUp(directionToMerge));
-            
-            //Sequence sequence = DOTween.Sequence();
-            
-            // sequence.Append(_blockController.Root.DOMove(_blockController.Root.position + Vector3.up , 0.5f))
-            //     .Append(_blockController.Root.DOMove(_blockController.Root.position + directionToMerge, 1f))
-            //     .SetEase(_blockController._mergeAniamtionCurve)
-            //     .JoinCallback(() =>
-            //     {
-            //         // Merge Effects
-            //         
-            //     })
-            //     .AppendCallback(()=>);
+            void Activate()
+            {
+                _blockController.Animation.Play(animationType);
+                CoroutineRunner.Instance.StartCoroutine(BlockUp(position));
+            }
         }
-        
-        
-        
         
         private float timeElapsed = 0;
 
@@ -103,30 +153,37 @@ using UnityEngine.Serialization;
                 _blockController.Root.rotation = Quaternion.Euler(new Vector3(0f, 180 + angle, 0f));
                 yield return null;
             }
-
-            _blockController.ActivateCoroutine(BlockHorizontal(horizontalDirection));
+            CoroutineRunner.Instance.StartCoroutine(BlockHorizontal(horizontalDirection));
         }
         
-        private IEnumerator BlockHorizontal(Vector3 direction)
+        private IEnumerator BlockHorizontal(Vector3 targetPosition)
         {
             timeElapsed = 0f;
             Vector3 startPosition = _blockController.Root.position;
+            targetPosition.y = startPosition.y;
+
+            Vector3 startRoation = _blockController.Root.eulerAngles;
+            
             while (timeElapsed <= 1)
             {
                 timeElapsed += Time.deltaTime * _blockController.mergeSpeed;
                     
                 float normalizedTime =  Mathf.Clamp01(timeElapsed);
+                float angle = Mathf.Lerp(startRoation.y, 180, normalizedTime);
                         
                 float curveMultiplier = _blockController._mergeAniamtionCurve.Evaluate(normalizedTime);
-
-                Vector3 pos = startPosition + direction * curveMultiplier * _blockController.mergeAmplitude;
-
-                _blockController.Root.position = pos;
+                
+                _blockController.Root.position = Vector3.Lerp(startPosition, targetPosition, curveMultiplier * _blockController.mergeAmplitude);
+                _blockController.Root.rotation = Quaternion.Euler(new Vector3(0f, angle, 0f));
+                
                 yield return null;
             }
-            Debug.Log("Effect ! !");
-            _callback?.Invoke();
+            _blockController.Partical();
+
+            _blockController.Root.DOScale(Vector3.zero, 0.1f)
+                .OnComplete(() => _callback?.Invoke());
         }
+
         
         
     }

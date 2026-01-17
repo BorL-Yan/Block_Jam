@@ -12,7 +12,7 @@ public class PathFinder
     
     private static readonly (int r, int c)[] Directions =
     {
-        (1, 0), (-1, 0), (0, 1), (0, -1) // 4 направления
+        (1, 0), (-1, 0), (0, 1), (0, -1)
     };
 
     public PathFinder(GridController grid)
@@ -28,21 +28,19 @@ public class PathFinder
 
     private void CreateNodes()
     {
-        Debug.Log("Start Creating Nodes");
         _nodes = new PathNode[_grid.Rows, _grid.Columns];
 
         for (int r = 0; r < _grid.Rows; r++)
         {
             for (int c = 0; c < _grid.Columns; c++)
             {
-                try
+                Cell cell = _grid.GetCell(r, c);
+                if (cell == null)
                 {
-                    _nodes[r, c] = new PathNode(_grid.GetCell(r, c));
+                    Debug.LogError($"[PathFinder] Cell at {r}:{c} is NULL. Check GridController initialization.");
+                    continue;
                 }
-                catch (IndexOutOfRangeException e)
-                {
-                    Debug.Log(e.Message);
-                }
+                _nodes[r, c] = new PathNode(cell);
             }
         }
     }
@@ -92,7 +90,7 @@ public class PathFinder
         }
 
         // Быстрый выход, если цель недоступна
-        if (target.CellType == CellType.Wall)
+        if (target.CellType == CellType.Wall || target.CellType == CellType.Tube)
             return null;
         
         ResetNodes();
@@ -120,10 +118,7 @@ public class PathFinder
 
                 Cell cell = _grid.GetCell(nr, nc);
 
-                if (cell.CellType == CellType.Wall)
-                    continue;
-
-                if (cell.CellType == CellType.Block)
+                if (cell.CellType == CellType.Wall || cell.CellType == CellType.Block || cell.CellType == CellType.Tube)
                     continue;
 
                 PathNode neighbor = _nodes[nr, nc];

@@ -1,13 +1,16 @@
 using System;
 using UnityEngine;
 using System.IO;
-using UnityEngine.Serialization;
 
 
 public static class GameSave
 {
     private static GameSettings currentSettings;
     private static string settingsFilePath;
+
+    public const int MaxLevel = 12; 
+
+    public static event Action OnChamgeSettings;
     
     public static void Init()
     {
@@ -17,6 +20,7 @@ public static class GameSave
     
     public static void Save()
     {
+        OnChamgeSettings?.Invoke();
         string json = JsonUtility.ToJson(currentSettings);
         File.WriteAllText(settingsFilePath, json);
     }
@@ -47,4 +51,6 @@ public static class GameSave
 public class GameSettings
 {
     public int Level;
+    public bool Vibration = true;
+    public bool SFX = true; 
 }
