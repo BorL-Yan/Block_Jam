@@ -1,0 +1,66 @@
+{
+    "version": 1,
+    "name": "CharacterInput",
+    "maps": [
+        {
+            "name": "Character",
+            "id": "c5eb2008-ecd9-4095-8a58-0d39bab64e2d",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Button",
+                    "id": "fbac622d-c431-4254-a61e-99b4683668f8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Point",
+                    "type": "Value",
+                    "id": "cbb639f9-edf1-461a-8dc4-3fc2223bb3ab",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "76d0170c-078e-4148-8689-5e91a454c74e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f16ec7ed-6565-4eca-98a4-c402194b5b69",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89c67c49-2990-49a0-b67d-bda9e8c176f5",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

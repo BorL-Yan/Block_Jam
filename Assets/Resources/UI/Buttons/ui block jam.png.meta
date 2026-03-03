@@ -1,0 +1,1219 @@
+fileFormatVersion: 2
+guid: 633d86ba3268c0b4592d8cb3c773de6f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Check List
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 2468
+        width: 334
+        height: 340
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f319e9d941e9644ea5a3cf83736eaca
+      internalID: -1327639580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magazin
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 2487
+        width: 318
+        height: 324
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aba291258878e64aa51c02d263b2fa6
+      internalID: 934973892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Play
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 2469
+        width: 384
+        height: 332
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed146026da924d9418ad429599741649
+      internalID: 313941135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_86
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 2157
+        width: 806
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6b8c0bd5f624a40accf0532363f9c4
+      internalID: 1307697120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_88
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 1869
+        width: 434
+        height: 494
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b2fca7e7265f84883021608e9b3160
+      internalID: 350503644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_91
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 1817
+        width: 489
+        height: 513
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc07a5854edfd254b9a098820d294cba
+      internalID: 1820531060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_97
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 2160
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3603cf147d527c41ab41f677fe6e2ab
+      internalID: 240228351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_98
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 1853
+        width: 638
+        height: 221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 77, y: 70, z: 84, w: 68}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67434460cd3da244d8f3b9a6193c9d47
+      internalID: 2050830554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_111
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 1608
+        width: 280
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 837c583e09381864ba4c8927e97cf9ab
+      internalID: 2075040313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_119
+      rect:
+        serializedVersion: 2
+        x: 1523
+        y: 1581
+        width: 315
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db595262efbe2b446b2158fc577069e9
+      internalID: -1704393508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_123
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 1363
+        width: 938
+        height: 398
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0185dc0e9e6e474d958c8e9adb60d92
+      internalID: -1402888294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_137
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 1423
+        width: 126
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f10669e19c887145b15e6981b9ae68f
+      internalID: 1624105312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_143
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 1430
+        width: 106
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a332adc2c2853b8478b33ad2b9b1cf48
+      internalID: -79765034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_145
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 1408
+        width: 141
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f9b457992dd6e4dae31639a1476f09
+      internalID: -749798408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_148
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 1433
+        width: 108
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6101bedab1f1df74c902ebcf550917cc
+      internalID: 1498746988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_164
+      rect:
+        serializedVersion: 2
+        x: 2183
+        y: 1253
+        width: 163
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e84b3cf377a59458cd6078d082610a
+      internalID: -1570516679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_166
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 1430
+        width: 111
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e01fd5273ba75f3429275d905d4206bf
+      internalID: 2036792674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_178
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 1134
+        width: 382
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 598d88fe65d94bc449cadde0d8c05fd8
+      internalID: 2103377230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_179
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 1170
+        width: 442
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 56, y: 50, z: 66, w: 48}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c14c8e74d6edd9c4c9e0f8f528a6e498
+      internalID: 1376006367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_180
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 1063
+        width: 1038
+        height: 274
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3eb34b9b70fd3e4ba64e6424fb01c9f
+      internalID: -1913541165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_184
+      rect:
+        serializedVersion: 2
+        x: 2177
+        y: 1006
+        width: 194
+        height: 196
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6627a4b914f9fb40b0903d58496b4cf
+      internalID: -1468714990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_187
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 824
+        width: 574
+        height: 281
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 100, y: 0, z: 107, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b59f25437458a48b8c8b07f8169bc3
+      internalID: 592942207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_192
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 523
+        width: 916
+        height: 376
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e1d6174e747724094b2970541de780
+      internalID: 337420134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_194
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 751
+        width: 192
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dee86d28d76024348a18ef21ed2f29e7
+      internalID: 728829570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_199
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 644
+        width: 315
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 38, y: 46, z: 32, w: 40}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00ce002590baf2c4cb5a3c73cbdf8a34
+      internalID: 394221449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_201
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 685
+        width: 70
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f2119e31f6cf2043881777745a5fbc4
+      internalID: 2096373054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_202
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 656
+        width: 104
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a66b63a07c88de4c86681e41ed9c56c
+      internalID: 1438397463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_203
+      rect:
+        serializedVersion: 2
+        x: 2183
+        y: 397
+        width: 195
+        height: 289
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23a479973e9c7474daee322b6be75cd8
+      internalID: 842333870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_207
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 507
+        width: 114
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31015c04411d2ba45af046fa1ad0c10d
+      internalID: 2069093147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_208
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 507
+        width: 119
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81f16cb13a8c8de41b06c7385496442d
+      internalID: -1561077677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_209
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 512
+        width: 105
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4858d26fd3cd2f44c867ad73f0edbad7
+      internalID: -692780246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_218
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 162
+        width: 291
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 588896f2e425e69409a74a73228dbfbc
+      internalID: -135283691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_219
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 342
+        width: 273
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 45, y: 70, z: 47, w: 55}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf046fc917d37e84d99b8d8931d4454e
+      internalID: 562886652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_223
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 98
+        width: 392
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5abb7caf154755d4c859f969f43aa4c0
+      internalID: -526862333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_224
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 181
+        width: 66
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcdd8a0139d8ce348a697e803ee06711
+      internalID: 2132729393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_225
+      rect:
+        serializedVersion: 2
+        x: 2182
+        y: 160
+        width: 191
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a0a6bec814c6d642a23b1d8ede9c47c
+      internalID: 592090431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Block List
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 2464
+        width: 367
+        height: 359
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dc629bb829962941b5ac6da7b437373
+      internalID: 404349464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranked
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 2471
+        width: 333
+        height: 336
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693fac4001c238545871361e7c7a2779
+      internalID: 24555088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui block jam_0
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 165
+        width: 312
+        height: 308
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63c5372913161264a94bc5135d0c01ff
+      internalID: 625952303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d133338eb6794ef4a858a4ff9c325653
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Block List: 404349464
+      Check List: -1327639580
+      Magazin: 934973892
+      Main Play: 313941135
+      Ranked: 24555088
+      ui block jam_0: 625952303
+      ui block jam_1: 553842570
+      ui block jam_100: -702429341
+      ui block jam_101: -1258137059
+      ui block jam_102: 1344428729
+      ui block jam_103: 2064833149
+      ui block jam_104: -1054822620
+      ui block jam_105: 436158648
+      ui block jam_106: -1388285627
+      ui block jam_107: -758772207
+      ui block jam_108: -216191010
+      ui block jam_109: -1603647934
+      ui block jam_11: -1445023204
+      ui block jam_110: 2042816452
+      ui block jam_111: 2075040313
+      ui block jam_112: 8313757
+      ui block jam_113: 346646764
+      ui block jam_114: -585951119
+      ui block jam_115: 2059400405
+      ui block jam_116: -77064854
+      ui block jam_117: -1483518457
+      ui block jam_118: -170141414
+      ui block jam_119: -1704393508
+      ui block jam_120: 1221566769
+      ui block jam_121: 965286410
+      ui block jam_122: 91774159
+      ui block jam_123: -1402888294
+      ui block jam_124: -1099814120
+      ui block jam_125: -1173436720
+      ui block jam_126: 922330188
+      ui block jam_127: 2009755611
+      ui block jam_128: -1369081010
+      ui block jam_129: 691387796
+      ui block jam_13: -2056361201
+      ui block jam_130: -602318219
+      ui block jam_131: 678667141
+      ui block jam_132: -626470282
+      ui block jam_133: 1508220352
+      ui block jam_134: -41156602
+      ui block jam_135: -1220094799
+      ui block jam_136: 544718058
+      ui block jam_137: 1624105312
+      ui block jam_138: -691924524
+      ui block jam_139: -1591181737
+      ui block jam_14: -1853779515
+      ui block jam_140: -1046064051
+      ui block jam_141: 146257704
+      ui block jam_142: -224781951
+      ui block jam_143: -79765034
+      ui block jam_144: -1189926430
+      ui block jam_145: -749798408
+      ui block jam_146: -160853051
+      ui block jam_147: 1450264069
+      ui block jam_148: 1498746988
+      ui block jam_149: -1187814692
+      ui block jam_15: -1972062226
+      ui block jam_150: -842455910
+      ui block jam_151: 376847941
+      ui block jam_152: 1429927391
+      ui block jam_153: -1813371784
+      ui block jam_154: -1333008349
+      ui block jam_155: 282249432
+      ui block jam_156: 897136312
+      ui block jam_157: -1453497198
+      ui block jam_158: -991875755
+      ui block jam_159: 1492815190
+      ui block jam_16: -446172879
+      ui block jam_160: 1760097534
+      ui block jam_161: -855421740
+      ui block jam_162: 1524455126
+      ui block jam_163: 984044839
+      ui block jam_164: -1570516679
+      ui block jam_165: -2111338616
+      ui block jam_166: 2036792674
+      ui block jam_167: -235443929
+      ui block jam_168: -156297189
+      ui block jam_169: -927592054
+      ui block jam_170: -1016299037
+      ui block jam_171: -1378499822
+      ui block jam_172: -997383723
+      ui block jam_173: 1042965958
+      ui block jam_174: -1461737671
+      ui block jam_175: 1517968345
+      ui block jam_176: 1032382540
+      ui block jam_177: 829973954
+      ui block jam_178: 2103377230
+      ui block jam_179: 1376006367
+      ui block jam_18: -444051284
+      ui block jam_180: -1913541165
+      ui block jam_181: -1353002303
+      ui block jam_182: 819377561
+      ui block jam_183: -132836743
+      ui block jam_184: -1468714990
+      ui block jam_185: 1255585496
+      ui block jam_186: -231133081
+      ui block jam_187: 592942207
+      ui block jam_188: -1872801346
+      ui block jam_189: 500362816
+      ui block jam_19: 2115498491
+      ui block jam_190: 1055680640
+      ui block jam_191: 737105997
+      ui block jam_192: 337420134
+      ui block jam_193: -570785962
+      ui block jam_194: 728829570
+      ui block jam_195: -1593289692
+      ui block jam_196: 1783495287
+      ui block jam_197: -1895259118
+      ui block jam_198: 1302930871
+      ui block jam_199: 394221449
+      ui block jam_2: 313775725
+      ui block jam_20: 1183819895
+      ui block jam_200: 3054699
+      ui block jam_201: 2096373054
+      ui block jam_202: 1438397463
+      ui block jam_203: 842333870
+      ui block jam_204: 1609479310
+      ui block jam_205: 335921425
+      ui block jam_206: 1688068681
+      ui block jam_207: 2069093147
+      ui block jam_208: -1561077677
+      ui block jam_209: -692780246
+      ui block jam_21: -187779812
+      ui block jam_210: -284753839
+      ui block jam_211: 1818235648
+      ui block jam_212: -160693996
+      ui block jam_213: -1438949972
+      ui block jam_214: -773709299
+      ui block jam_215: -1988820797
+      ui block jam_216: -1169891688
+      ui block jam_217: -522903680
+      ui block jam_218: -135283691
+      ui block jam_219: 562886652
+      ui block jam_22: -2101464570
+      ui block jam_220: -994145680
+      ui block jam_221: 545934080
+      ui block jam_222: 1453614649
+      ui block jam_223: -526862333
+      ui block jam_224: 2132729393
+      ui block jam_225: 592090431
+      ui block jam_226: -451546586
+      ui block jam_23: 384648038
+      ui block jam_24: -877135635
+      ui block jam_25: -558032090
+      ui block jam_26: -1595916131
+      ui block jam_27: 781236589
+      ui block jam_28: -680281409
+      ui block jam_29: 1755552945
+      ui block jam_3: -323288324
+      ui block jam_30: -2097526556
+      ui block jam_31: -35171206
+      ui block jam_32: -1012426249
+      ui block jam_33: 896716313
+      ui block jam_34: 42845019
+      ui block jam_35: 1944797522
+      ui block jam_36: -1302290315
+      ui block jam_37: -2064399594
+      ui block jam_38: -784477043
+      ui block jam_39: -876427471
+      ui block jam_4: 1007584785
+      ui block jam_40: -1396525842
+      ui block jam_41: -1001715217
+      ui block jam_42: 2005092381
+      ui block jam_43: 1126131309
+      ui block jam_44: 1287036384
+      ui block jam_45: -14234864
+      ui block jam_46: 1878803670
+      ui block jam_47: 593805615
+      ui block jam_48: 826298099
+      ui block jam_49: 1057138921
+      ui block jam_5: -1470149261
+      ui block jam_50: 1216992088
+      ui block jam_51: 767245810
+      ui block jam_52: -1203647466
+      ui block jam_53: -846073532
+      ui block jam_54: 2010247602
+      ui block jam_55: 1063873475
+      ui block jam_56: -1806887654
+      ui block jam_57: 217453076
+      ui block jam_58: 1655133680
+      ui block jam_59: 1878935185
+      ui block jam_6: -1286232303
+      ui block jam_60: -1596202549
+      ui block jam_61: 1562891051
+      ui block jam_62: 1487312529
+      ui block jam_63: 1649954482
+      ui block jam_64: 976526425
+      ui block jam_65: -1698235646
+      ui block jam_66: -399448997
+      ui block jam_67: 1964057818
+      ui block jam_68: 1446301687
+      ui block jam_69: -1295122408
+      ui block jam_7: 707833270
+      ui block jam_70: -713467727
+      ui block jam_71: -387438029
+      ui block jam_72: 1384655488
+      ui block jam_73: -1081100152
+      ui block jam_74: -1756690774
+      ui block jam_75: 633080770
+      ui block jam_76: 590262790
+      ui block jam_77: 2101034129
+      ui block jam_78: -780798845
+      ui block jam_79: -1672756172
+      ui block jam_8: -882676183
+      ui block jam_80: 911029493
+      ui block jam_81: 268684013
+      ui block jam_82: 2029874603
+      ui block jam_83: -1813390378
+      ui block jam_84: 852783130
+      ui block jam_85: -1912217564
+      ui block jam_86: 1307697120
+      ui block jam_87: 646570996
+      ui block jam_88: 350503644
+      ui block jam_89: 237151307
+      ui block jam_9: -303622335
+      ui block jam_90: -232064439
+      ui block jam_91: 1820531060
+      ui block jam_92: -102086953
+      ui block jam_93: -897366912
+      ui block jam_94: -2117104067
+      ui block jam_95: -397181128
+      ui block jam_96: 622828266
+      ui block jam_97: 240228351
+      ui block jam_98: 2050830554
+      ui block jam_99: -1148407463
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
