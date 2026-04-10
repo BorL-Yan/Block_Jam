@@ -1,5 +1,6 @@
 using System.Collections;
 using Lib;
+using Managers;
 using UnityEngine;
 
 namespace Game
@@ -70,7 +71,9 @@ namespace Game
                 if (GridController.Instance.Created)
                 {
                     levelActions.OnStartLevel?.Invoke();
+                    SoundManager.Instance.PlayHello();
                     StartLevelRegistry.Invoke();
+                    GameManager.Instance.isWin = false;
                     break;
                 }
                 yield return null;

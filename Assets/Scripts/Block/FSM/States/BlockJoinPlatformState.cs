@@ -31,7 +31,7 @@ public class BlockJoinPlatformState : BlockStateBase
             _blockController.MergePoint.IsStanding = true;
         }
         
-        MergeController.Instance.MergeToColor(_blockController.BlockColor);
+        
         SoundManager.Instance.PlayOneShot(SoundType.Jump);
     }
 
@@ -52,7 +52,9 @@ public class BlockJoinPlatformState : BlockStateBase
                 _blockController.infoUI.SetText("Idle");
                 _blockController.MaterilaController.SetEyes(_blockController.BlockColor, BlockEyesType.Active);
                 _activateJoin = true;
+                
                 _callback?.Invoke();
+                MergeController.Instance.MergeToColor(_blockController.BlockColor);
                 
                 CoroutineRunner.Instance.Run(GameEndCallback());
                 
@@ -63,7 +65,7 @@ public class BlockJoinPlatformState : BlockStateBase
 
     private IEnumerator GameEndCallback()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.9f);
         MergeController.Instance.DetectGameEnd();
     }
     

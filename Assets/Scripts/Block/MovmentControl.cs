@@ -109,8 +109,7 @@ public class MovmentControl
                     _mergeCallBack = mergeCallback;
                     animationType = BlockAnimationType.Merge_Midle;
                     _angle = 0;
-                    SoundManager.Instance.PlayOneShot(SoundType.Merge);
-                    //MobailVibration.Vibration(VibrationType.average);
+                    SoundManager.Instance.PlayOneShot(SoundType.Merge,1);
                     
                     break;
                 }
@@ -137,7 +136,6 @@ public class MovmentControl
             
             void Activate()
             {
-                //CoroutineTestUI.Instance.SetText("Activate");
                 _blockController.Animation.Play(animationType);
                 BlcokAnimation(position + Vector3.up*_blockController.jumpAmplitude);
             }
@@ -147,6 +145,8 @@ public class MovmentControl
         {
             Vector3 direction = (_blockController.Root.position - position).normalized;
 
+            GameObject particle = null;
+            
             Sequence sequence = DOTween.Sequence();
             _blockController.infoUI.SetText($"StartAnim");
             sequence.Append(
@@ -160,12 +160,18 @@ public class MovmentControl
                 {
                     MobileVibration.Vibrate(VibrationType.weak);
                     _mergeCallBack?.Invoke();
+                    particle = _blockController.Partical();
                 })
-                .Append(_blockController.transform.DOMoveX(position.x, _blockController.mergeSpeed * 2 / 3).SetEase(Ease.OutSine))
+                .Append(_blockController.transform.DOMoveX(position.x, _blockController.mergeSpeed * 2 / 3)
+                    .SetEase(Ease.OutSine)
+                    .OnUpdate(() =>
+                    {
+                        particle.transform.position = _blockController.transform.position;
+                    }))
                 .AppendCallback(() =>
                 {
+                    //_blockController.Partical();
                     _blockController.infoUI.SetText($"end Move");
-                    _blockController.Partical();
                 })
                 .Append(_blockController.transform.DOScale(0, 0.1f))
                 .OnComplete(() =>

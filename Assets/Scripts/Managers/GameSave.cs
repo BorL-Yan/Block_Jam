@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.IO;
+using UnityEngine.Serialization;
 
 
 public static class GameSave
@@ -50,8 +51,8 @@ public static class GameSave
 [Serializable]
 public class GameSettings
 {
-    public int Level;
-    public int Coint;
+    public int Level = 0;
+    public int Coin = 0;
     public bool Vibration = true;
     public bool SFX = true; 
 }

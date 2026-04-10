@@ -35,14 +35,15 @@ namespace Game
 
              //activateIndex = 0;
             
-            int activateIndex = data.Level+1;
+             
+            int activateIndex = Mathf.Clamp(data.Level+1, 1, 15);
             GameManager.Instance.LoadManueController.ActivateLoadManue(true);
         
             
             GameManager.Instance.isWin = true;
             GameManager.Instance.ActivateSceneController.ActivateScene(activateIndex);
             var settings = GameSave.GetSettings();
-            settings.Coint += 4;
+            settings.Coin += 4;
             GameSave.SetSettings(settings);
             GameSave.Save();
         }

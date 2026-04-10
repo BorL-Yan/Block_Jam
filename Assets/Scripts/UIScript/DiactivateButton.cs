@@ -8,7 +8,6 @@ namespace UIScript
         
         protected override void Click()
         {
-            Debug.Log("Button");
             _obj.gameObject.SetActive(false);
         }
     }

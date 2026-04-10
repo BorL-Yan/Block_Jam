@@ -31,7 +31,6 @@ public class MobSelector : MonoBehaviour
         // 2. Используем ручной Raycast вместо стандартной проверки
         if (IsPointerOverUIElement(screenPosition))
         {
-            Debug.Log("Попали в UI, игнорируем игру");
             return;
         }
         

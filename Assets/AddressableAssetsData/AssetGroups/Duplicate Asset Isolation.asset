@@ -1,0 +1,303 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Duplicate Asset Isolation
+  m_GUID: bfb471360522c8440b484d1483005506
+  m_SerializeEntries:
+  - m_GUID: 13c02b14c4d048fa9653293d54f6e0e1
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/2D/Sprite-Unlit-Default.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ae30d497436b5e49b0bf6c103714f04
+    m_Address: Assets/Materials/Sprites/Sircle.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20d870bd3b7890d40978c942cce3a247
+    m_Address: Assets/Materials/Sprites/Light.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 234cec549359dfd4585bcff02e1b6046
+    m_Address: Assets/Animation/Final Win/StartPos.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ed7464922c67df4fa8ac92f84996ed5
+    m_Address: Assets/Materials/Block/Active/Red.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 345a595f6f8e9b24fb81a23a95ea2694
+    m_Address: Assets/Materials/Box.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36e335017ad71d54fbb10842863188ae
+    m_Address: Packages/com.unity.render-pipelines.core/Runtime/RenderPipelineResources/FallbackShader.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47b14bafc7cf1594584ca1a682b7843d
+    m_Address: Assets/Animation/Blcok/_Block.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4afda1659990c5d418c9211f04c29939
+    m_Address: Assets/Materials/Sprites/Cloud.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52772a4af0209f245a1da3600e62b365
+    m_Address: Assets/Prefabs/Block/Armature.006_Final Win Midle.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58d9d18f7cb737e4b9afc094b6163304
+    m_Address: Assets/TutorialInfo/Icons/New Material.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 601be73c5139f1749adab416aff72cf5
+    m_Address: Assets/Materials/Block/Diactive/Yellow 2.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6239421087e57a146abfa6d1ea1d207d
+    m_Address: Assets/Materials/Sprites/Cloud.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68e6db2ebdc24f95958faec2be5558d6
+    m_Address: Assets/TextMesh Pro/Shaders/TMP_SDF.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69cf405fdd3af8e4d97a8db88d63233d
+    m_Address: Assets/Fonts/Settings_outline_red.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b05d15ec6498c849b1d28d8beb03eab
+    m_Address: Assets/Materials/Box_base.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e6ccda42fc4e0d49a847619731085b8
+    m_Address: Assets/Prefabs/Block/Armature.006_Final Win Right.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76124b6237d11834b867250d916e2ed1
+    m_Address: Assets/Materials/Block/Diactive/Purple 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7820be2f70d14f540b1e24549389e371
+    m_Address: Assets/Audio/MainAudioMixer.mixer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cb01a13bc692a94cb6747ea8a81b18e
+    m_Address: Assets/Animation/Box/Box.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f494ed70ee8aef45a19935255fe05cd
+    m_Address: Assets/Materials/Sprites/Sircle.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92d20f235db8ee14c871f48280d27576
+    m_Address: Assets/Materials/Block/Active/Purple.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 933532a4fcc9baf4fa0491de14d08ed7
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9439df4f95cf7aa4e90782c968a17d91
+    m_Address: Assets/Materials/Block/Win Block/WinBlue.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9447cd53e35d3b347b391cd3895141a5
+    m_Address: Assets/Materials/Block/Active/Yellow 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97212de92cf8d5e459afdcf8beb5e862
+    m_Address: Assets/Prefabs/Block/Block_Base.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 984088c5e887b4949979fe4d3422fcdd
+    m_Address: Assets/Materials/Block/Diactive/Red 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d0077952221cb34582b86a084c8087f
+    m_Address: Assets/Materials/Sprites/Trial.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d6a3cb7b1d884e48887f4f8da5696a2
+    m_Address: Assets/Materials/Block/Diactive/Yellow 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9dd715cdd86c5d84a8877d1f39455e8f
+    m_Address: Assets/Animation/Box/Box Break.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9dfc825aed78fcd4ba02077103263b40
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Sprite-Unlit-Default.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a006cec1672ce98478f066eea58d2c0a
+    m_Address: Assets/Fonts/Settings_outline_Purple.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a18b5a8f0bf4c5949af5dcdd0ea2dac6
+    m_Address: Assets/Materials/Block/Active/Yellow.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae6f136105e3cb64088a3cc16f5a23c4
+    m_Address: Assets/Materials/Shaders/Outline.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1d00f4a6adf17a4e99ba7f42067cb16
+    m_Address: Assets/Materials/Block/Diactive/Blue 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2e27c5ec7a16d249ac5d8ca86f22281
+    m_Address: Assets/Materials/Sprites/Qarakusi 2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c65cac2025d3f934d8df854fd1a6148e
+    m_Address: Assets/Materials/Sprites/Star.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca9f5fa95ffab41fb9a615ab714db018
+    m_Address: Packages/com.unity.inputsystem/InputSystem/Plugins/PlayerInput/DefaultInputActions.inputactions
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d70ab534e58407240a8cde396e104a42
+    m_Address: Assets/Prefabs/Block/Armature.006_Final Win Left.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d782f3e8f5162dd4f83022e9600c6646
+    m_Address: Assets/Materials/Block/Diactive/Green 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da27879a82f40dd4b890dedd2cbe38f9
+    m_Address: Assets/Materials/Block/Active/Green.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db8e2e176d0fe1a4ea7b27a4de4ff833
+    m_Address: Assets/Materials/Block/Active/Blue.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de147a4e6e825f3428f10495837bb63d
+    m_Address: Assets/Fonts/LilitaOne-Regular SDF 1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2ca4c1fee04c5d4da98b21dd2a5a6c3
+    m_Address: Assets/Materials/Block/Diactive/Purple 2.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3265ab4bf004d28a9537516768c1c75
+    m_Address: Assets/TextMesh Pro/Fonts/LiberationSans.ttf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6e9a19c3678ded42a3bc431ebef7dbd
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/Utils/FallbackError.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb8e9e4b904c4ac48a5298c6b510ff58
+    m_Address: Assets/Fonts/LilitaOne-Regular Def.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee8303f436847bc49b77565ba4362b89
+    m_Address: Assets/Fonts/Settings_outline_Blue.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f380cbd930632f749b7e136e2756dc04
+    m_Address: Assets/Materials/Sprites/Line.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4c93456bb7d5114d8687e9bf3bf4694
+    m_Address: Assets/TutorialInfo/Icons/Screenshot_2026-03-03-11-46-39-376_com.partyup.blockjam.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f73be666663ea434bacde7ee010f1cc3
+    m_Address: Assets/Materials/Sprites/Star.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb20c003a9001a34c8c1552b31fab513
+    m_Address: Assets/Animation/Final Win/FinalWin.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb9dfcdea9e605a4e9c60db23f62a6bb
+    m_Address: Assets/Animation/Final Win/Win.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe393ace9b354375a9cb14cdbbc28be4
+    m_Address: Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe51255aeb3495748ad46324514247c1
+    m_Address: Assets/Animation/Blcok/Final Win Block.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fea8ba0ba88e56b498c2aa82844c7d9a
+    m_Address: Assets/Materials/Sprites/Blik.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b7a110185a3c0ef479633b89f29fe229, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 49c55cb57ecaf104abf3cf149c5f699e, type: 2}
+    - {fileID: 11400000, guid: 340397a8782cabc47855980bbbad373a, type: 2}

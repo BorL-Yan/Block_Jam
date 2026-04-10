@@ -147,7 +147,6 @@ public class BlockActivateState : BlockStateBase
             .AppendCallback(() =>
             {
                 _blockController.Animation.Play(BlockAnimationType.Hello);
-                SoundManager.Instance.PlayOneShot(SoundType.Hello);
             });
     }
 

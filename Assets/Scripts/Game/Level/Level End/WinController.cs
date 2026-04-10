@@ -135,7 +135,6 @@ namespace Game
         
         private void ActivateText()
         {
-            Debug.Log("Activated Text");
             _textRoot.localScale = Vector3.one * 1.2f;
             
             _text.ForEach(w => w.transform.localScale = Vector3.zero);

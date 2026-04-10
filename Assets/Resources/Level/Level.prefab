@@ -403,7 +403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5830969539889402378
 Transform:
   m_ObjectHideFlags: 0
@@ -3580,6 +3580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6ca84b6bab43a59221d6a722f4abc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIScript.ExitManue
+  _settingsPanel: {fileID: 6017941672000330511}
 --- !u!1 &8072865659463888927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3668,6 +3669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6ca84b6bab43a59221d6a722f4abc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIScript.ExitManue
+  _settingsPanel: {fileID: 0}
 --- !u!1 &8399481424523512032
 GameObject:
   m_ObjectHideFlags: 0

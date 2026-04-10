@@ -105,7 +105,7 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
     
     public void StartScene()
     {
-        if (_blockedObject.isActiveAndEnabled) _blockedObject.Active = true;
+        if (_blockedObject!= null && _blockedObject.isActiveAndEnabled) _blockedObject.Active = true;
         else StateMachine.ChangeState<BlockDiactivateState>();
         Action.InitilaHello?.Invoke();
     }
@@ -160,15 +160,9 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
 
     public void Select()
     {
-        Debug.Log("Select Block");
-        
         if (_blockedObject.Active == false)
         {
             Action.OnSelect?.Invoke();
-        }
-        else
-        {
-            Debug.Log("Blocked Box Active");
         }
     }
 
@@ -210,11 +204,11 @@ public class BlockController : MonoBehaviour, IMovable, ISelect, IDisposable
         }
     }
     
-    public void Partical()
+    public GameObject Partical()
     {
-        GameObject partical = BlockJamParticals.Instance.GetPartical(_blockColor);
-        partical.SetActive(true);
-        partical.transform.position = Root.position;
+        return BlockJamParticals.Instance.GetPartical(_blockColor);
+        // partical.SetActive(true);
+        // partical.transform.position = Root.position;
     }
     
     public void DestroyBlock()

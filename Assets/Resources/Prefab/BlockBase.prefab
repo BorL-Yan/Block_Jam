@@ -200,11 +200,11 @@ MonoBehaviour:
   <MaterilaController>k__BackingField: {fileID: 6900024053030668051}
   infoUI: {fileID: 6585492389035919654}
   mergeAmplitude: 1.2
-  mergeSpeed: 0.2
+  mergeSpeed: 0.25
   jumpAmplitude: 1.3
   jumpSpeed: 0.2
   upPause: 0.1
-  _speed: 15
+  _speed: 13
   MergePoint: {fileID: 0}
   Cell: {fileID: 0}
   _blockColor: 1

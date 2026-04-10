@@ -25,6 +25,22 @@
             "RenderType"="Opaque"
             "UniversalMaterialType"="Lit"
         }
+        
+        HLSLINCLUDE
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+        
+        TEXTURE2D(_MainTex);
+        SAMPLER(sampler_MainTex);
+        
+        CBUFFER_START(UnityPerMaterial)
+            float4 _BaseColor;
+            float4 _EmissionColor;
+            float4 _OutlineColor;
+            float  _OutlineSize;
+            float  _Metallic;
+            float  _Smoothness;
+        CBUFFER_END
+        ENDHLSL
 
         // =================================================
         // PASS 1 — OUTLINE (UNLIT)
@@ -40,9 +56,8 @@
             HLSLPROGRAM
             #pragma vertex vertOut
             #pragma fragment fragOut
-
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-
+            #pragma multi_compile_instancing
+            
             struct Attributes
             {
                 float4 positionOS : POSITION;
@@ -53,11 +68,6 @@
             {
                 float4 positionHCS : SV_POSITION;
             };
-
-            CBUFFER_START(UnityPerMaterial)
-                float4 _OutlineColor;
-                float  _OutlineSize;
-            CBUFFER_END
 
             Varyings vertOut(Attributes v)
             {
@@ -81,10 +91,13 @@
         {
             Name "ForwardLit"
             Tags { "LightMode"="UniversalForward" }
-
+            
+            Cull Back
+            
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #pragma multi_compile_instancing
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 
@@ -102,16 +115,6 @@
                 float3 normalWS    : TEXCOORD1;
                 float2 uv          : TEXCOORD2;
             };
-
-            TEXTURE2D(_MainTex);
-            SAMPLER(sampler_MainTex);
-
-            CBUFFER_START(UnityPerMaterial)
-                float4 _BaseColor;
-                float  _Metallic;
-                float  _Smoothness;
-                float4 _EmissionColor;
-            CBUFFER_END
 
             Varyings vert(Attributes v)
             {

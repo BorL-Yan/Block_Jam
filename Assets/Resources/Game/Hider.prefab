@@ -146,8 +146,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5579179238834723538}
-  - component: {fileID: 2841129858058637257}
   - component: {fileID: 8656913918403830568}
+  - component: {fileID: 9107363047601119422}
   m_Layer: 0
   m_Name: Hider
   m_TagString: Untagged
@@ -174,26 +174,6 @@ Transform:
   - {fileID: 5950459556014774059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2841129858058637257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3622998560992190323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da69f4f39f574e17bc851f94be4111ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.LoadManueController
-  _loadManue: {fileID: 6414297081009563621}
-  _loadManueSprites:
-  - {fileID: -799929371, guid: ac98fb83d49da274a8793e910dfec10f, type: 3}
-  - {fileID: -1687587951, guid: 7a6b36c73c319ee4fbb5b90064554df1, type: 3}
-  - {fileID: 1702172263, guid: b40e7305adedd7040927d922993b5ea4, type: 3}
-  - {fileID: -382675797, guid: 7698d7d666a0d5c48ae0daab57dfcd45, type: 3}
-  _image: {fileID: 4675824972183109704}
-  _background: {fileID: 6736397276780395576}
 --- !u!114 &8656913918403830568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +191,26 @@ MonoBehaviour:
   strength: 0.1
   vibrato: 7
   randomness: 25
+--- !u!114 &9107363047601119422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622998560992190323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a367542084427d89455931174ddf8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.LoadManueController
+  _loadManue: {fileID: 6414297081009563621}
+  _loadManueSprites:
+  - {fileID: -799929371, guid: ac98fb83d49da274a8793e910dfec10f, type: 3}
+  - {fileID: -1687587951, guid: 7a6b36c73c319ee4fbb5b90064554df1, type: 3}
+  - {fileID: 1702172263, guid: b40e7305adedd7040927d922993b5ea4, type: 3}
+  - {fileID: -382675797, guid: 7698d7d666a0d5c48ae0daab57dfcd45, type: 3}
+  _image: {fileID: 4675824972183109704}
+  _background: {fileID: 6736397276780395576}
 --- !u!1 &3853775311839647393
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ namespace UIScript.Icons
 
         private void Start()
         {
-            _coinText.text = GameSave.GetSettings().Coint.ToString();
+            _coinText.text = GameSave.GetSettings().Coin.ToString();
         }
 
         private void ChangeSettings()

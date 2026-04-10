@@ -18,6 +18,7 @@ public class BlockRanState : BlockStateBase
         _blockController.ActivateTrailRenderer();
         
         SoundManager.Instance.PlayOneShot(SoundType.Activate);
+        SoundManager.Instance.Play(SoundType.Walk);
         
         _finalPoint = false;
         

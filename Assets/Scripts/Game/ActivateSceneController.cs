@@ -23,12 +23,12 @@ namespace Game
                 yield return null;
             }
             
+            yield return new WaitForSeconds(0.5f);
             GameManager.Instance.LoadManueController.ActivateLoadManue(false);
-
+            
             if (index != 0)
             {
                 LevelController.Instance.Init();
-                Debug.Log("Init LevelController");
             }
             else
             {

@@ -11,16 +11,22 @@ public class SoundManager : SingletonScene<SoundManager>
     [SerializeField] private List<SoundSettings> _sounds;
 
 
-    public void PlayOneShot(SoundType soundType)
-    {
-        AudioClip clip = _sounds.Find(s => s.audioType == soundType).audioClip;
-        _audioSource.PlayOneShot(clip);
-    }
-
-    public void PlayOneShot(SoundType soundType, float scale)
+    public void PlayOneShot(SoundType soundType, float scale = 1.0f)
     {
         AudioClip clip = _sounds.Find(s => s.audioType == soundType).audioClip;
         _audioSource.PlayOneShot(clip, scale);
+    }
+
+    public void Play(SoundType soundType)
+    {
+        AudioClip clip = _sounds.Find(s => s.audioType == soundType).audioClip;
+        _audioSource.clip = clip;
+        _audioSource.Play();
+    }
+    
+    public void PlayHello()
+    {
+        PlayOneShot(SoundType.Hello);
     }
 }
 
